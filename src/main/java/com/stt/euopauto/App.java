@@ -1,5 +1,6 @@
 package com.stt.euopauto;
 
+import org.apache.log4j.Logger;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
@@ -10,18 +11,19 @@ import org.junit.runner.notification.Failure;
  */
 public class App 
 {
+	public static Logger log = Logger.getLogger(App.class);
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
-        Result result = JUnitCore.runClasses(AppTest.class);
+        log.info( "Hello World!" );
+        Result result = JUnitCore.runClasses(AppTest.class,ActivityFeedbackServiceTest.class);
         
         if(result.wasSuccessful()) {
-        	System.out.println("well done");
+        	log.info("well done");
         }else {
-        	System.out.println("some thing wrong...");
+        	log.info("some thing wrong...");
         	for (Failure failure : result.getFailures()) {
-            	System.out.println(failure.toString());
-            	System.out.println(failure.getMessage());
+            	log.info(failure.toString());
+            	log.info(failure.getMessage());
             }
         }
         
