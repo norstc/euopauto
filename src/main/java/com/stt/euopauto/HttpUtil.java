@@ -27,7 +27,7 @@ public class HttpUtil {
 		if(url.equals(null)) {
 			return null;
 		}else if(url.indexOf("http") < 0) {
-			log.info("url is : " + url);
+			log.info("invalid url : " + url);
 			return null;
 		}
 		try {
@@ -74,12 +74,16 @@ public class HttpUtil {
 				}
 				in.close();
 				return response.toString();
+			}else {
+				return "no proper response from server";
 			}
 			
 		}catch(Exception e) {
+			log.error(e.getMessage());
 			e.printStackTrace();
+			return null;
 		}
-		return "I am a json!";
+		
 	}
 
 	private static void trustAllHosts() {

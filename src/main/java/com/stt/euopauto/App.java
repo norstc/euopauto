@@ -15,7 +15,10 @@ public class App
     public static void main( String[] args )
     {
         log.info( "Hello World!" );
-        Result result = JUnitCore.runClasses(AppTest.class,ActivityFeedbackServiceTest.class);
+        Result result = JUnitCore.runClasses(
+        		AppTest.class,
+        		ActivityFeedbackServiceTest.class
+        		);
         
         if(result.wasSuccessful()) {
         	log.info("well done");
