@@ -11,6 +11,12 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
+/**
+ * 活动审核反馈接口
+ * 使用Junit 参数化测试，将所有省侧反馈接口保存到代码中
+ * @author zhangjh
+ *
+ */
 @RunWith(Parameterized.class)
 public class ActivityFeedbackServiceTest {
 	public Logger log = Logger.getLogger(ActivityFeedbackServiceTest.class);

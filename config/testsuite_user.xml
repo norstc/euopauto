@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="User managerment">
+	<test name = "User Test">
+		<classes>
+			<class name = "com.stt.euopauto.EuopTestng" />
+		</classes>	
+	</test>
+</suite>
