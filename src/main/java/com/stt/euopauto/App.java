@@ -1,6 +1,7 @@
 package com.stt.euopauto;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
@@ -11,7 +12,7 @@ import org.junit.runner.notification.Failure;
  */
 public class App 
 {
-	public static Logger log = Logger.getLogger(App.class);
+	public static Logger log = LogManager.getLogger(App.class);
     public static void main( String[] args )
     {
         log.info( "EUOP 自动测试开始" );

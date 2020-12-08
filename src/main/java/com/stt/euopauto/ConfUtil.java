@@ -6,10 +6,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class ConfUtil {
-	public static Logger log = Logger.getLogger(ConfUtil.class);
+	public static Logger log = LogManager.getLogger(ConfUtil.class);
 	private Properties confChannelProperties;
 	private static ConfUtil confUtil = null;
 
