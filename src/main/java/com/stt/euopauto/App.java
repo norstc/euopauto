@@ -12,16 +12,20 @@ import org.junit.runner.notification.Failure;
  */
 public class App 
 {
-	public static Logger log = LogManager.getLogger(App.class);
+	public static Logger log = LogManager.getLogger("mylog");
     public static void main( String[] args )
     {
+    	System.out.println("hello euop tester");
         log.info( "EUOP 自动测试开始" );
         //使用Junit 运行测试用例集
         Result result = JUnitCore.runClasses(
         		//基本测试用例集一
-        		AppTest.class,
+        		//AppTest.class,
         		//活动反馈接口测试用例集
-        		ActivityFeedbackServiceTest.class
+        		//ActivityFeedbackServiceTest.class
+        		
+        		//一级iop查询
+        		QueryIopActivityTest.class
         		);
         
         if(result.wasSuccessful()) {

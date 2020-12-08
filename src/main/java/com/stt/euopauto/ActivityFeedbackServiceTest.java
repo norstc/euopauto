@@ -20,7 +20,7 @@ import org.junit.runners.Parameterized.Parameters;
  */
 @RunWith(Parameterized.class)
 public class ActivityFeedbackServiceTest {
-	public Logger log = LogManager.getLogger(ActivityFeedbackServiceTest.class);
+	public Logger log = LogManager.getLogger("mylog");
 	@Parameters
 	public static Collection<Object[]> data(){
 		return Arrays.asList(new Object[][] {
@@ -64,9 +64,10 @@ public class ActivityFeedbackServiceTest {
 		this.urlName = urlName;
 		this.urlAddress = urlAddress;
 	}
+	
 	@Test
 	public void test_activity_feedback_url() {
-		String url=ConfUtil.getConfUtil()
+		String url=ConfUtil.getConfUtil("config/conf_channel.properties")
 				.getConfChannelProperties()
 				.getProperty(urlName);
 		

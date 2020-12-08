@@ -10,28 +10,28 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class ConfUtil {
-	public static Logger log = LogManager.getLogger(ConfUtil.class);
-	private Properties confChannelProperties;
+	public static Logger log = LogManager.getLogger("mylog");
+	private Properties properties;
 	private static ConfUtil confUtil = null;
 
 	public Properties getConfChannelProperties() {
-		return confChannelProperties;
+		return properties;
 	}
 	//lazy  load singleton pattern
-	public static ConfUtil getConfUtil() {
+	public static ConfUtil getConfUtil(String config_file) {
 		if(confUtil == null) {
-			return new ConfUtil();
+			return new ConfUtil(config_file);
 		}else {
 			return confUtil;
 		}
 	}
-	private ConfUtil(){
-		String confChannelPropertiesFilepath ="config/conf_channel.properties";
-		confChannelProperties = new Properties();
+	private ConfUtil(String config_file){
+		String config_file_path =config_file;//"config/conf_channel.properties";
+		properties = new Properties();
 		try {
-			InputStream conf_channel_properties_filepath = new FileInputStream(confChannelPropertiesFilepath);
-			confChannelProperties.load(conf_channel_properties_filepath);
-			conf_channel_properties_filepath.close();
+			InputStream config_is = new FileInputStream(config_file_path);
+			properties.load(config_is);
+			config_is.close();
 		}catch (FileNotFoundException f) {
 			log.info(f.getStackTrace());
 			
@@ -42,5 +42,7 @@ public class ConfUtil {
 	}
 	public static void main(String[] args) {
 		log.info("test conf");
+		String url = ConfUtil.getConfUtil("config/conf_channel.properties").getConfChannelProperties().getProperty("channel_2571001_opPostitionQuery_url");
+		log.info("channel_2571001_opPostitionQuery_url  is "+ url);
 	}
 }

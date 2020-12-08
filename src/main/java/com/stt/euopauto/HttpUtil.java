@@ -17,7 +17,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class HttpUtil {
-	public static Logger log = LogManager.getLogger(HttpUtil.class);
+	public static Logger log = LogManager.getLogger("mylog");
 	public static String getJsonRes(String url, String load) {
 		String USER_AGENT = "Mozilla/5.0";
 		String CONTENT_TYPE = "applicatoin/json";

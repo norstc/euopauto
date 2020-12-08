@@ -48,11 +48,31 @@ log4j
 
 ## 运行测试
 
+
+
+在项目目录下
+
+E:\zjh\work\eclipse-ws-oxigen\euopauto>
+
+运行所有用例
+
+直接指向main类App
+
+```shell
+java -cp .;.\config;.\target\euopauto-1.0.jar com.stt.euopauto.App
+```
+
+
+
+
+
 指定测试用例
 
 比如，指定执行 com.stt.euopauto.ActivityFeedbackServiceTest 里面的测试用例
 
 ```shell
-java -cp .;.\config;.\euopauto-1.0.jar org.junit.runner.JUnitCore com.stt.euopauto.ActivityFeedbackServiceTest
+java -cp .;.\config;.\target\euopauto-1.0.jar org.junit.runner.JUnitCore com.stt.euopauto.ActivityFeedbackServiceTest
 ```
+
+
 
