@@ -14,5 +14,14 @@ public class EuopTestng{
 		assert(true);
 	}
 	
+	@Test
+	public void test2() throws Exception{
+		assert(1+1 == 2);
+	}
+	
+	@Test
+	public void test3() throws Exception{
+		assert(1+2 == 4);
+	}
 
 }
