@@ -31,7 +31,7 @@ public class ActivityFeedbackServiceTest {
 		return Arrays.asList(new Object[][] {
 			{"iop2100_activity_feedback_url",""},
 			{"iop2200_activity_feedback_url",""},
-			{"iop2210_activity_feedback_url","http://211.136.164.120:20110/oppf?appId=501096&method=IOP-R50001&version=vsersion1.1.3&timestamp=20180531174324"},
+			{"iop2210_activity_feedback_url",""},
 			{"iop2220_activity_feedback_url",""},
 			{"iop2230_activity_feedback_url",""},
 			{"iop2240_activity_feedback_url",""},
@@ -53,7 +53,7 @@ public class ActivityFeedbackServiceTest {
 			{"iop2771_activity_feedback_url",""},
 			{"iop2791_activity_feedback_url",""},
 			{"iop2851_activity_feedback_url",""},
-			{"iop2871_activity_feedback_url","http://123.59.26.108/subitemReviewFeedBack/reviewFeedBack"},
+			{"iop2871_activity_feedback_url",""},
 			{"iop2891_activity_feedback_url",""},
 			{"iop2898_activity_feedback_url",""},
 			{"iop2931_activity_feedback_url",""},

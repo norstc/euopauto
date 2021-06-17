@@ -1,4 +1,4 @@
-package com.stt.euopauto.user;
+package com.stt.euopauto.framework;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -15,29 +15,31 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 
-public class UserTest {
-	private WebDriver driver;
+public class SeleniumTestClass {
+	protected WebDriver driver;
 	private Map<String, Object> vars;
 	JavascriptExecutor js;
+	
+	@BeforeSuite
+	public void beforeSuite() {
+		System.out.println("BeforeSuite");
+	}
 
 	@BeforeTest
-	public void setUp() {
+	public void beforeTest() {
+		System.out.println("BeforeTest");
 		driver = new FirefoxDriver();
 		js = (JavascriptExecutor) driver;
 		vars = new HashMap<String, Object>();
-	}
-
-	@AfterTest
-	public void tearDown() {
-		driver.quit();
-	}
-
-	@Test
-	public void euoptest1login() {
 		driver.get("http://192.168.1.181:8080/euop/user/login.do");
 		driver.manage().window().setSize(new Dimension(1898, 1032));
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -59,11 +61,39 @@ public class UserTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		assertThat(driver.findElement(By.cssSelector(".active")).getText(), is("个人工作台"));
-		//截图
-		
 	}
 
+	@BeforeClass
+	public void beforeClass() {
+		System.out.println("BeforeClass");
+	}
+
+	@BeforeMethod
+	public void beforeMethod() {
+		System.out.println("BeforeMethod");
+	}
+
+	@AfterMethod
+	public void afterMethod() {
+		System.out.println("AfterMethod");
+	}
+
+	@AfterClass
+	public void afterClass() {
+		System.out.println("AfterClass");
+	}
+
+	@AfterTest
+	public void afterTest() {
+		System.out.println("AfterTest");
+		driver.quit();
+	}
+
+	@AfterSuite
+	public void afterSuite() {
+		System.out.println("AfterSuite");
+	}
+	
 	private void checkAlert() {
 		// 处理登录时的弹窗
 		try {
@@ -77,21 +107,5 @@ public class UserTest {
 			e.printStackTrace();
 		}
 	}
-	
-	@Test
-	public void testEuopLogin() throws Exception{
-		assert(true);
-	}
-	
-	@Test
-	public void testIopActivity() throws Exception{
-		//模拟一级iop推送工单
-		
-		//登录euop后查看个人工作台，第一条新工单
-	}
-	
-	@Test
-	public void test3() throws Exception{
-		assert(1+2 == 4);
-	}
+
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="User managerment">
-	<test name = "User Test">
+<suite name="TestNG演示">
+	<test name = "TestNG基本测试">
 		<classes>
-			<class name = "com.stt.euopauto.EuopTestng" />
+			<class name = "com.stt.euopauto.AppTest" />
 		</classes>	
 	</test>
 </suite>

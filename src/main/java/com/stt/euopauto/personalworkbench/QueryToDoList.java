@@ -1,4 +1,8 @@
-package com.stt.euopauto.user;
+package com.stt.euopauto.personalworkbench;
+
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -15,11 +19,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 
-public class UserTest {
+public class QueryToDoList {
 	private WebDriver driver;
 	private Map<String, Object> vars;
 	JavascriptExecutor js;
@@ -29,15 +32,6 @@ public class UserTest {
 		driver = new FirefoxDriver();
 		js = (JavascriptExecutor) driver;
 		vars = new HashMap<String, Object>();
-	}
-
-	@AfterTest
-	public void tearDown() {
-		driver.quit();
-	}
-
-	@Test
-	public void euoptest1login() {
 		driver.get("http://192.168.1.181:8080/euop/user/login.do");
 		driver.manage().window().setSize(new Dimension(1898, 1032));
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -59,8 +53,30 @@ public class UserTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		assertThat(driver.findElement(By.cssSelector(".active")).getText(), is("个人工作台"));
-		//截图
+	}
+
+	@AfterTest
+	public void tearDown() {
+		driver.quit();
+	}
+
+	@Test
+	public void queryPoNo() {
+		
+		driver.get("http://192.168.1.181:8080/euop/user/login.do");
+		//等待完成
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    driver.manage().window().setSize(new Dimension(1900, 1003));
+	    driver.switchTo().frame(1);
+	    driver.findElement(By.id("orderIdQueryOption")).click();
+	    driver.findElement(By.id("orderIdQueryOption")).sendKeys("PQ2021061700001");
+	    driver.findElement(By.id("searchbtnToDo")).click();
+	    assertThat(driver.findElement(By.linkText("PQ2021061700001")).getText(), is("PQ2021061700001"));
 		
 	}
 
@@ -78,20 +94,5 @@ public class UserTest {
 		}
 	}
 	
-	@Test
-	public void testEuopLogin() throws Exception{
-		assert(true);
-	}
-	
-	@Test
-	public void testIopActivity() throws Exception{
-		//模拟一级iop推送工单
-		
-		//登录euop后查看个人工作台，第一条新工单
-	}
-	
-	@Test
-	public void test3() throws Exception{
-		assert(1+2 == 4);
-	}
+
 }

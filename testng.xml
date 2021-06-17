@@ -1,16 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="SuiteQuery">
-  <test thread-count="5" name="TestQueryIopActivity">
+<suite name="EUOP 测试">
+  <test thread-count="5" name="渠道侧接口测试">
     <classes>
-      <class name="com.stt.euopauto.QueryIopActivityTest"/>
+      <class name="com.stt.euopauto.channels.QueryIopActivityTest"/>
     </classes>
-  </test> <!-- TestQueryIopActivity -->
+  </test> 
   
-  <test name = "User Test">
+  <test name = "用户测试">
 		<classes>
 			<class name = "com.stt.euopauto.user.UserTest" />
 		</classes>	
+	</test>
+	
+	 <test name = "个人工作台">
+		<classes>
+			<class name = "com.stt.euopauto.personalworkbench.QueryToDoList" />
+		</classes>	
+	</test>
+	
+	
+	<test name = "物料管理">
+		<classes>
+			<class name = "com.stt.euopauto.materialmanagement.MaterialManagement" />
+		</classes>	
+	</test>
+	
+	  <test name = "发布管理">
+		<classes>
+			<class name = "com.stt.euopauto.publishmanagement.PublishManagement" />
+		</classes>	
+	</test>
+	
+	 
+	
+	<test name = "Testng演示">
+		<classes>
+			<class name = "com.stt.euopauto.AppTest" />
+		</classes>
+	</test>
+	
+	<test name = "IOP侧接口测试">
+		<classes>
+			<class name = "com.stt.euopauto.iop.ActivityFeedbackServiceTest" />
+		</classes>
 	</test>
 </suite> <!-- SuiteQuery -->
 

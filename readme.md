@@ -145,3 +145,14 @@ C:\Users\Administrator\.m2\repository\org\testng\testng\7.3.0\testng-7.3.0.jar
 java -cp ".:.\config:C:\Users\Administrator\.m2\repository\org\testng\testng\7.3.0\testng-7.3.0.jar"  org.testng.TestNg .\config\testsuite_user.xml
 ```
 
+
+
+eclipse下
+
+右键入口文件App.java  run as java application
+
+
+
+构建程序后，打包出一个jar文件, 需要在testng.xml所在目录执行
+
+java -jar filename.jar
