@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="SuiteQuery">
+  <test thread-count="5" name="TestQueryIopActivity">
+    <classes>
+      <class name="com.stt.euopauto.QueryIopActivityTest"/>
+    </classes>
+  </test> <!-- TestQueryIopActivity -->
+  
+  <test name = "User Test">
+		<classes>
+			<class name = "com.stt.euopauto.user.UserTest" />
+		</classes>	
+	</test>
+</suite> <!-- SuiteQuery -->
+

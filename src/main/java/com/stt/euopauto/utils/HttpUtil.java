@@ -1,4 +1,4 @@
-package com.stt.euopauto;
+package com.stt.euopauto.utils;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;

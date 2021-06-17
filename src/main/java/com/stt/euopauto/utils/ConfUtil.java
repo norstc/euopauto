@@ -1,4 +1,4 @@
-package com.stt.euopauto;
+package com.stt.euopauto.utils;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -10,7 +10,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class ConfUtil {
-	public static Logger log = LogManager.getLogger("mylog");
+	public static Logger log = LogManager.getLogger(ConfUtil.class);
 	private Properties properties;
 	private static ConfUtil confUtil = null;
 

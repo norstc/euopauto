@@ -1,25 +1,30 @@
-package com.stt.euopauto;
+package com.stt.euopauto.iop;
 
-import static org.junit.Assert.*;
-
+import org.testng.annotations.Factory;
+import static org.testng.ConversionUtils.wrapDataProvider;
+import org.testng.annotations.Test;
+import org.testng.Assert;
 import java.util.Arrays;
 import java.util.Collection;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
+
+import com.stt.euopauto.utils.ConfUtil;
+import com.stt.euopauto.utils.HttpUtil;
 
 /**
  * 活动审核反馈接口
- * 使用Junit 参数化测试，将所有省侧反馈接口保存到代码中
+ * 使用 参数化测试，将所有省侧反馈接口保存到代码中
  * @author zhangjh
  *
  */
-@RunWith(Parameterized.class)
 public class ActivityFeedbackServiceTest {
+	@Factory
+	public static Object[] factoryData() {
+		return wrapDataProvider(ActivityFeedbackServiceTest.class, data());
+	}
 	public Logger log = LogManager.getLogger("mylog");
 	@Parameters
 	public static Collection<Object[]> data(){
@@ -74,14 +79,14 @@ public class ActivityFeedbackServiceTest {
 		if(url.equals("")) {
 			
 			log.info(urlName + " is empty!");
-			fail("url is null");
+			Assert.fail("url is null");
 			
 		}
 		log.info(urlName + " is : "+url);
 		String requestLoad =""; 
 		String jsonRes = HttpUtil.getJsonRes(url,requestLoad);
 		if (jsonRes.equals(null)){
-			fail("no response from target");
+			Assert.fail("no response from target");
 		}else {
 			log.info("request load is : " + requestLoad);
 			log.info("response is : " + jsonRes);

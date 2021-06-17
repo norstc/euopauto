@@ -1,4 +1,4 @@
-package com.stt.euopauto;
+package com.stt.euopauto.mock;
 
 import java.util.List;
 

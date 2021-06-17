@@ -1,4 +1,18 @@
-# EUOP 自动测试
+# 自动测试框架
+
+## 测试环境构建
+
+### 代码仓库：git
+
+
+
+### 构建和部署工具：jenkins
+
+
+
+### 数据库：mysql
+
+
 
 ## 基本框架
 
@@ -48,7 +62,15 @@ log4j
 
 
 
-## 测试接口
+## 测试内容
+
+### 功能测试
+
+
+
+### 接口测试
+
+
 
 * 一级iop实时查询接口
 * 省级IOP实时查询接口
@@ -67,6 +89,8 @@ log4j
 
 
 ## 运行测试
+
+### junit
 
 
 
@@ -95,4 +119,29 @@ java -cp .;.\config;.\target\euopauto-1.0.jar org.junit.runner.JUnitCore com.stt
 ```
 
 
+
+### testng
+
+在E:\zjh\work\eclipse-ws-oxigen\euopauto\config\testsuite_user.xml
+
+```xml
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="User managerment">
+	<test name = "User Test">
+		<classes>
+			<class name = "com.stt.euopauto.EuopTestng" />
+		</classes>	
+	</test>
+</suite>
+```
+
+
+
+C:\Users\Administrator\.m2\repository\org\testng\testng\7.3.0\testng-7.3.0.jar
+
+在项目目录下执行E:\zjh\work\eclipse-ws-oxigen\euopauto>
+
+```shell
+java -cp ".:.\config:C:\Users\Administrator\.m2\repository\org\testng\testng\7.3.0\testng-7.3.0.jar"  org.testng.TestNg .\config\testsuite_user.xml
+```
 

@@ -6,6 +6,8 @@ import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 
+import com.stt.euopauto.channels.QueryIopActivityTest;
+
 /**
  * EUOP 自动测试程序入口
  *
