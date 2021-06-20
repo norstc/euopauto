@@ -19,29 +19,16 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class UserTest {
-	private WebDriver driver;
-	private Map<String, Object> vars;
-	JavascriptExecutor js;
+import com.stt.euopauto.framework.SeleniumTestClass;
 
-	@BeforeTest
-	public void setUp() {
-		driver = new FirefoxDriver();
-		js = (JavascriptExecutor) driver;
-		vars = new HashMap<String, Object>();
-	}
-
-	@AfterTest
-	public void tearDown() {
-		driver.quit();
-	}
+public class UserTest extends SeleniumTestClass{
+	
 
 	@Test
 	public void euoptest1login() {
 		driver.get("http://192.168.1.181:8080/euop/user/login.do");
 		driver.manage().window().setSize(new Dimension(1898, 1032));
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.findElement(By.id("username")).click();
 		driver.findElement(By.id("username")).sendKeys("zhangjh2@sh-stt.com");
 		driver.findElement(By.id("mobile")).sendKeys("15800407048");
 		driver.findElement(By.id("imageValidCode2")).sendKeys("1");

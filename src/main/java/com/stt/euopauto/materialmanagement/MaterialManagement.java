@@ -12,8 +12,8 @@ import static org.junit.Assert.assertThat;
 public class MaterialManagement extends SeleniumTestClass {
 	@Test
 	public void testMaterialManagementClick() {
-		driver.get("http://192.168.1.181:8080/euop/user/login.do");
-	    driver.manage().window().setSize(new Dimension(1577, 1005));
+		//driver.get("http://192.168.1.181:8080/euop/user/login.do");
+	    driver.manage().window().setSize(new Dimension(1900, 1005));
 	    driver.findElement(By.linkText("物料管理")).click();
 	    driver.findElement(By.cssSelector(".toggleBtn")).click();
 	    driver.switchTo().frame(0);

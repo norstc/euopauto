@@ -24,16 +24,22 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 
+/*
+ * Selenium 驱动的测试类
+ * 注意：只有使用selenium的测试类才用这个，其他非selenium的禁止用这个
+ */
 public class SeleniumTestClass {
 	protected WebDriver driver;
 	private Map<String, Object> vars;
 	JavascriptExecutor js;
 	
+	// 在每个suite前
 	@BeforeSuite
 	public void beforeSuite() {
 		System.out.println("BeforeSuite");
 	}
 
+	//在每个test前运行，注意这个test是testng.xml里的test标签
 	@BeforeTest
 	public void beforeTest() {
 		System.out.println("BeforeTest");
@@ -83,12 +89,14 @@ public class SeleniumTestClass {
 		System.out.println("AfterClass");
 	}
 
+	//在每个test后运行，这个test是testng.xml里的标签test， 不是测试用例
 	@AfterTest
 	public void afterTest() {
 		System.out.println("AfterTest");
 		driver.quit();
 	}
 
+	//在每个suite后运行
 	@AfterSuite
 	public void afterSuite() {
 		System.out.println("AfterSuite");

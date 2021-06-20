@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="EUOP 测试">
+	<listeners>
+		<listener class-name="com.stt.euopauto.framework.CustomisedListner" />
+	</listeners>
   <test thread-count="5" name="渠道侧接口测试">
     <classes>
       <class name="com.stt.euopauto.channels.QueryIopActivityTest"/>
@@ -10,6 +13,7 @@
   <test name = "用户测试">
 		<classes>
 			<class name = "com.stt.euopauto.user.UserTest" />
+			<class name = "com.stt.euopauto.user.Euoptest1loginTest" />
 		</classes>	
 	</test>
 	

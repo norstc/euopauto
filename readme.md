@@ -1,16 +1,43 @@
 # 自动测试框架
+一个基于maven的java工程，
+所有的测试代码都作为项目主代码，放到 src/main/java下
+src/test/java这个下面暂时不放任何代码，以后可以用来作为测试框架的简单验证，比如环境依赖库的检验，selenium，java jdk，
 
 ## 测试环境构建
 
+### 操作系统：windows
+
+本测试主要用于端到端验证，用户验收，所以不需要在linux环境上执行
+
+
+
 ### 代码仓库：git
+
+本地仓库：
+
+远端仓库：
 
 
 
 ### 构建和部署工具：jenkins
 
+使用本地安装jenkins的方式，在windows环境下执行
+
+
+
+### 网页服务器：apache
+
+主要用来展示testng执行时的输出结果
+
+后续也可以做定制报告的展示页面
+
+还有就是项目帮助文档的展示
+
 
 
 ### 数据库：mysql
+
+主要用来做测试数据存储和测试日志的收集
 
 
 
@@ -18,32 +45,36 @@
 
 基于maven的Java工程，pom.xml
 
-使用Junit 4
+使用Junit 4==》 取消了，全部改为testng
+
+### testng
+
+```xml
+ <!-- testng -->
+    <dependency>
+    	<groupId>org.testng</groupId>
+    	<artifactId>testng</artifactId>
+    	<version>7.3.0</version>
+    </dependency>
+```
+
+测试驱动，所有的测试用例通过testng.xml来管理，执行
+
+### selenium
+
+
 
 ```xml
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.13.1</version>
-
+    	<groupId>org.seleniumhq.selenium</groupId>
+    	<artifactId>selenium-java</artifactId>
+    	<version>3.12.0</version>
     </dependency>
 ```
 
+浏览器驱动，模拟用户点击，进行ui测试
 
-
-testng
-
-```xml
-<dependency>
-    	<groupId>org.testng</groupId>
-    	<artifactId>testng</artifactId>
-    	<version>6.14.3</version>
-    </dependency>
-```
-
-
-
-log4j
+### log4j
 
 ```xml
 <dependency>
@@ -58,6 +89,8 @@ log4j
     </dependency>
 ```
 
+日志记录
+
 
 
 
@@ -66,11 +99,45 @@ log4j
 
 ### 功能测试
 
+#### 用户管理
+
+登录
+
+查询
+
+#### 模板管理
+
+查询
+
+#### 栏目管理
+
+查询
+
+#### 物料管理
+
+查询
+
+#### 发布管理
+
+查询
+
+#### 统计分析
+
+查询
+
+#### 触点管理
+
+查询
+
 
 
 ### 接口测试
 
+#### 管理类接口
 
+
+
+#### 服务类接口
 
 * 一级iop实时查询接口
 * 省级IOP实时查询接口
@@ -85,6 +152,10 @@ log4j
 * 任务取消实时接口
 * 短信单发实时接口
 * 短信群发实时接口
+
+
+
+### 性能测试
 
 
 
