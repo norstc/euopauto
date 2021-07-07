@@ -73,7 +73,7 @@ public class ActivityFeedbackServiceTest {
 	@Test
 	public void test_activity_feedback_url() {
 		String url=ConfUtil.getConfUtil("config/conf_channel.properties")
-				.getConfChannelProperties()
+				.getProperties()
 				.getProperty(urlName);
 		
 		if(url.equals("")) {

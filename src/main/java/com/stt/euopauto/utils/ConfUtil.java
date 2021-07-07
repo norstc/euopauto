@@ -14,7 +14,7 @@ public class ConfUtil {
 	private Properties properties;
 	private static ConfUtil confUtil = null;
 
-	public Properties getConfChannelProperties() {
+	public Properties getProperties() {
 		return properties;
 	}
 	//lazy  load singleton pattern
@@ -42,7 +42,9 @@ public class ConfUtil {
 	}
 	public static void main(String[] args) {
 		log.info("test conf");
-		String url = ConfUtil.getConfUtil("config/conf_channel.properties").getConfChannelProperties().getProperty("channel_2571001_opPostitionQuery_url");
+		String url = ConfUtil.getConfUtil("config/conf_channel.properties").getProperties().getProperty("channel_2571001_opPostitionQuery_url");
 		log.info("channel_2571001_opPostitionQuery_url  is "+ url);
+		String rdmsPassword = ConfUtil.getConfUtil("config/password.properties").getProperties().getProperty("rdmsPassword");
+		log.info("rdmsPassword is: " + rdmsPassword);
 	}
 }

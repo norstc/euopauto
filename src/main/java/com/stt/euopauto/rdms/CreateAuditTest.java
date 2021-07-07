@@ -15,6 +15,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.stt.euopauto.utils.ConfUtil;
+
 public class CreateAuditTest {
 	private WebDriver driver;
 	private Map<String, Object> vars;
@@ -57,7 +59,8 @@ public class CreateAuditTest {
 			driver.findElement(By.cssSelector(".form-item:nth-child(4) > .placeholder")).click();
 			driver.findElement(By.name("username")).sendKeys("zhangjh");
 			driver.findElement(By.cssSelector(".form-item:nth-child(5) > .placeholder")).click();
-			driver.findElement(By.name("password")).sendKeys("!QAZ2wsx3edc");
+			String rdmsPassword = ConfUtil.getConfUtil("config/password.properties").getProperties().getProperty("rdmsPassword");
+			driver.findElement(By.name("password")).sendKeys(rdmsPassword);
 			driver.findElement(By.cssSelector(".loginButton")).click();
 			sleep(1000);
 			// 直接打开 新增评审 页面, 不建议这样用，因为会破坏页面的frame结构，要重新调整脚本

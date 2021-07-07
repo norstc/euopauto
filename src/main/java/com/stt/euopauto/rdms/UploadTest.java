@@ -3,6 +3,9 @@ package com.stt.euopauto.rdms;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
+
+import com.stt.euopauto.utils.ConfUtil;
+
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import static org.hamcrest.CoreMatchers.is;
@@ -71,7 +74,8 @@ public class UploadTest {
 		driver.findElement(By.cssSelector(".form-item:nth-child(4) > .placeholder")).click();
 		driver.findElement(By.name("username")).sendKeys("zhangjh");
 		driver.findElement(By.cssSelector(".form-item:nth-child(5) > .placeholder")).click();
-		driver.findElement(By.name("password")).sendKeys("!QAZ2wsx3edc");
+		String rdmsPassword = ConfUtil.getConfUtil("config/password.properties").getProperties().getProperty("rdmsPassword");
+		driver.findElement(By.name("password")).sendKeys(rdmsPassword);
 		driver.findElement(By.cssSelector(".loginButton")).click();
 		sleep(1000);
 		

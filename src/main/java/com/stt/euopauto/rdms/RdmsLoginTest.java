@@ -9,9 +9,12 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import com.stt.euopauto.utils.ConfUtil;
 
 public class RdmsLoginTest {
 	private WebDriver driver;
@@ -52,14 +55,41 @@ public class RdmsLoginTest {
 		driver.findElement(By.cssSelector(".form-item:nth-child(4) > .placeholder")).click();
 		driver.findElement(By.name("username")).sendKeys("zhangjh");
 		driver.findElement(By.cssSelector(".form-item:nth-child(5) > .placeholder")).click();
-		driver.findElement(By.name("password")).sendKeys("!QAZ2wsx3edc");
+		String rdmsPassword = ConfUtil.getConfUtil("config/password.properties").getProperties().getProperty("rdmsPassword");
+		System.out.println("rdmsPassword is: " + rdmsPassword);
+		driver.findElement(By.name("password")).sendKeys(rdmsPassword);
 		driver.findElement(By.cssSelector(".loginButton")).click();
 		// 项目评审
 		// driver.findElement(By.cssSelector("#j_node_id4 .menu-text")).click();
 		sleep(5000);
-
+		// .list-left > strong:nth-child(2)
+		//Assert.assertEquals(driver.findElement(By.cssSelector(".list-left > strong:nth-child(2)")).getText(),"待办工作");
+		// .error
+		Assert.assertEquals(driver.findElement(By.cssSelector(".error")).getText(),"用户名或密码错误，请重新输入！");
 	}
 
+	
+	@Test(enabled = true)
+	public void rdmsLoginWrongPassword() {
+		driver.get("http://192.168.0.224:8080/login.jsp");
+		driver.manage().window().setSize(new Dimension(1832, 828));
+		driver.findElement(By.cssSelector(".form-item:nth-child(4) > .placeholder")).click();
+		driver.findElement(By.name("username")).sendKeys("zhangjh");
+		driver.findElement(By.cssSelector(".form-item:nth-child(5) > .placeholder")).click();
+		String rdmsPassword = ConfUtil.getConfUtil("config/password.properties").getProperties().getProperty("rdmsPassword");
+		System.out.println("rdmsPassword is: " + rdmsPassword);
+		driver.findElement(By.name("password")).sendKeys(rdmsPassword);
+		driver.findElement(By.cssSelector(".loginButton")).click();
+		// 项目评审
+		// driver.findElement(By.cssSelector("#j_node_id4 .menu-text")).click();
+		sleep(5000);
+		// .list-left > strong:nth-child(2)
+		//Assert.assertEquals(driver.findElement(By.cssSelector(".list-left > strong:nth-child(2)")).getText(),"待办工作");
+		// .error
+		Assert.assertEquals(driver.findElement(By.cssSelector(".error")).getText(),"用户名或密码错误，请重新输入！");
+	}
+	
+	
 	private void sleep(int i) {
 		try {
 			Thread.sleep(i);
