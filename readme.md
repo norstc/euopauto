@@ -1,4 +1,8 @@
-# 自动测试框架
+<dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-java</artifactId>
+        <version>3.141.59</version>
+    </dependency># 自动测试框架
 一个基于maven的java工程，
 所有的测试代码都作为项目主代码，放到 src/main/java下
 src/test/java这个下面暂时不放任何代码，以后可以用来作为测试框架的简单验证，比如环境依赖库的检验，selenium，java jdk，
@@ -62,13 +66,13 @@ src/test/java这个下面暂时不放任何代码，以后可以用来作为测�
 
 ### selenium
 
-
+通过maven来管理
 
 ```xml
     <dependency>
-    	<groupId>org.seleniumhq.selenium</groupId>
-    	<artifactId>selenium-java</artifactId>
-    	<version>3.12.0</version>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-java</artifactId>
+        <version>3.141.59</version>
     </dependency>
 ```
 
